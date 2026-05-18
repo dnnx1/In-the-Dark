@@ -3,7 +3,6 @@
 #include "external/glm/vec2.hpp"
 #include "engine/input/common/action.h"
 #include "engine/input/common/key_code.h"
-#include "engine/input/common/modifier.h"
 #include "engine/input/common/mouse_code.h"
 
 namespace itd::core
@@ -24,13 +23,11 @@ namespace itd::core
 	{
 		input::KeyCode code{ input::KeyCode::Undefined };
 		input::Action action{ input::Action::Undefined };
-		input::Modifier mods{ input::Modifier::None };
 	};
 	struct MouseButtonEvent
 	{
 		input::MouseCode code{ input::MouseCode::Undefined };
 		input::Action action{ input::Action::Undefined };
-		input::Modifier mods{ input::Modifier::None };
 	};
 
 	using Event = std::variant<
@@ -50,6 +47,16 @@ namespace itd::core
 		KeyEvent,
 		MouseButtonEvent
 	>;
+
+	template <typename EventType> inline bool event_is(const Event& _event)
+	{
+		return std::holds_alternative<EventType>(_event);
+	}
+
+	template <typename EventType> inline const EventType* event_try_cast(const Event& _event)
+	{
+		return std::get_if<EventType>(&_event);
+	}
 
 	//struct DropEvent { std::vector<std::string> paths; };
 }

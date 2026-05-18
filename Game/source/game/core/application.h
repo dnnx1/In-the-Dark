@@ -1,7 +1,10 @@
 #pragma once
 #include "engine/core/main_window/main_window.h"
 #include "engine/core/message/message_bus.h"
+#include "engine/graphics/graphics/graphics.h"
+#include "engine/graphics/renderer/renderer.h"
 #include "engine/time/time_manager/time_manager.h"
+#include "engine/input/keyboard/keyboard.h"
 
 namespace itd
 {
@@ -25,15 +28,21 @@ namespace itd
 		void terminate();
 		void loop();
 
+		void begin_frame();
 		void handle_events();
 		void handle_messages();
 		void update();
 		void render();
+		void end_frame();
 
 	private:
 		std::unique_ptr<core::MainWindow> m_window;
 		std::unique_ptr<core::MessageBus> m_message_bus;
+		std::unique_ptr<graphics::Graphics> m_graphics;
+		std::unique_ptr<graphics::Renderer> m_renderer;
 		std::unique_ptr<time::TimeManager> m_time_manager;
+
+		std::unique_ptr<input::Keyboard> m_keyboard;
 
 		bool m_running{ true };
 	};

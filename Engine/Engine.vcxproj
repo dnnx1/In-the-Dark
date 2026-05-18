@@ -66,7 +66,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)External\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -86,13 +86,17 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)External\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\engine\core\main_window\main_window.cpp" />
     <ClCompile Include="source\engine\core\main_window\main_window_setup_callbacks.cpp" />
     <ClCompile Include="source\engine\core\message\message_bus.cpp" />
+    <ClCompile Include="source\engine\graphics\graphics\graphics.cpp" />
+    <ClCompile Include="source\engine\graphics\renderer\renderer.cpp" />
+    <ClCompile Include="source\engine\input\frame_counter.cpp" />
+    <ClCompile Include="source\engine\input\keyboard\keyboard.cpp" />
     <ClCompile Include="source\engine\time\clock\clock.cpp" />
     <ClCompile Include="source\engine\time\stopwatch\stopwatch.cpp" />
     <ClCompile Include="source\engine\time\time_manager\time_manager.cpp" />
@@ -106,10 +110,16 @@
     <ClInclude Include="source\engine\core\message\message_bus_api.h" />
     <ClInclude Include="source\engine\core\main_window\main_window.h" />
     <ClInclude Include="source\engine\core\main_window\main_window_api.h" />
+    <ClInclude Include="source\engine\graphics\graphics\graphics.h" />
+    <ClInclude Include="source\engine\graphics\graphics\graphics_api.h" />
+    <ClInclude Include="source\engine\graphics\renderer\renderer.h" />
+    <ClInclude Include="source\engine\graphics\renderer\renderer_api.h" />
     <ClInclude Include="source\engine\input\common\action.h" />
     <ClInclude Include="source\engine\input\common\key_code.h" />
-    <ClInclude Include="source\engine\input\common\modifier.h" />
     <ClInclude Include="source\engine\input\common\mouse_code.h" />
+    <ClInclude Include="source\engine\input\frame_counter.h" />
+    <ClInclude Include="source\engine\input\keyboard\keyboard.h" />
+    <ClInclude Include="source\engine\input\keyboard\keyboard_api.h" />
     <ClInclude Include="source\engine\time\clock\clock.h" />
     <ClInclude Include="source\engine\time\clock\clock_api.h" />
     <ClInclude Include="source\engine\time\stopwatch\stopwatch.h" />

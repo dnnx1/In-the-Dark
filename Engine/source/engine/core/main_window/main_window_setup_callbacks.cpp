@@ -72,26 +72,6 @@ static itd::input::MouseCode to_mouse_code(int _native_code)
 	}
 }
 
-static itd::input::Modifier to_modifier(int _mods)
-{
-	using Modifier = itd::input::Modifier;
-	Modifier result = Modifier::None;
-
-	if (_mods & GLFW_MOD_SHIFT)
-		result = result | Modifier::Shift;
-
-	if (_mods & GLFW_MOD_CONTROL)
-		result = result | Modifier::Control;
-
-	if (_mods & GLFW_MOD_ALT)
-		result = result | Modifier::Alt;
-
-	if (_mods & GLFW_MOD_SUPER)
-		result = result | Modifier::Super;
-
-	return result;
-}
-
 void itd::core::MainWindow::setup_callbacks()
 {
 	glfwSetWindowUserPointer(m_glfw_window.get(), this);
@@ -151,14 +131,13 @@ void itd::core::MainWindow::setup_callbacks()
 			to_main_window(_glfw)->m_events.emplace(std::move(evt));
 		});
 
-	glfwSetKeyCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _key, int /*_scancode*/, int _action, int _mods)
+	glfwSetKeyCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _key, int /*_scancode*/, int _action, int /*_mods*/)
 		{
 			if (_action == GLFW_PRESS)
 			{
 				KeyEvent evt;
 				evt.action = input::Action::Press;
 				evt.code = to_key_code(_key);
-				evt.mods = to_modifier(_mods);
 				to_main_window(_glfw)->m_events.emplace(std::move(evt));
 			}
 			else if (_action == GLFW_RELEASE)
@@ -166,7 +145,6 @@ void itd::core::MainWindow::setup_callbacks()
 				KeyEvent evt;
 				evt.action = input::Action::Release;
 				evt.code = to_key_code(_key);
-				evt.mods = to_modifier(_mods);
 				to_main_window(_glfw)->m_events.emplace(std::move(evt));
 			}
 		});
@@ -178,14 +156,13 @@ void itd::core::MainWindow::setup_callbacks()
 			to_main_window(_glfw)->m_events.emplace(std::move(evt));
 		});
 
-	glfwSetMouseButtonCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _key, int _action, int _mods)
+	glfwSetMouseButtonCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _key, int _action, int /*_mods*/)
 		{
 			if (_action == GLFW_PRESS)
 			{
 				MouseButtonEvent evt;
 				evt.action = input::Action::Press;
 				evt.code = to_mouse_code(_key);
-				evt.mods = to_modifier(_mods);
 				to_main_window(_glfw)->m_events.emplace(std::move(evt));
 			}
 			else if (_action == GLFW_RELEASE)
@@ -193,7 +170,6 @@ void itd::core::MainWindow::setup_callbacks()
 				MouseButtonEvent evt;
 				evt.action = input::Action::Release;
 				evt.code = to_mouse_code(_key);
-				evt.mods = to_modifier(_mods);
 				to_main_window(_glfw)->m_events.emplace(std::move(evt));
 			}
 		});

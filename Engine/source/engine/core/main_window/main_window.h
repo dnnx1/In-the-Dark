@@ -42,8 +42,6 @@ namespace itd::core
 				_func(m_events.front());
 				m_events.pop();
 			}
-
-			glfwSwapBuffers(m_glfw_window.get());
 		}
 
 	public:
@@ -65,6 +63,7 @@ namespace itd::core
 		Mode mode() const override;
 
 		void vsync(bool _enable);
+		void swap_buffers();
 
 	private:
 		void setup_callbacks();

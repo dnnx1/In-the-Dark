@@ -156,3 +156,8 @@ void itd::core::MainWindow::vsync(bool _enable)
 {
 	glfwSwapInterval(_enable ? 1 : 0);
 }
+
+void itd::core::MainWindow::swap_buffers()
+{
+	glfwSwapBuffers(m_glfw_window.get());
+}
