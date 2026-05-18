@@ -2,7 +2,7 @@
 #include <memory>
 #include <queue>
 #include "external/GLFW/glfw3.h"
-#include "engine/core/event.h"
+#include "engine/core/main_window/event.h"
 #include "engine/core/main_window/main_window_api.h"
 
 namespace itd::core
@@ -38,17 +38,15 @@ namespace itd::core
 		{
 			glfwPollEvents();
 			while (!m_events.empty())
-			{
-				auto evt = std::move(m_events.front());
+			{				
+				_func(m_events.front());
 				m_events.pop();
-				_func(evt);
 			}
+
+			glfwSwapBuffers(m_glfw_window.get());
 		}
 
 	public:
-		void set_should_close(bool _close);
-		bool should_close() const;
-
 		void set_position(glm::ivec2 _pos);
 		void set_position(int _x, int _y);
 		glm::ivec2 position() const override;
@@ -65,6 +63,8 @@ namespace itd::core
 
 		void set_mode(Mode _mode);
 		Mode mode() const override;
+
+		void vsync(bool _enable);
 
 	private:
 		void setup_callbacks();

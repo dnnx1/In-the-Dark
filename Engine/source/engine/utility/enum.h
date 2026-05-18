@@ -1,7 +1,7 @@
 #pragma once
 #include <type_traits>
 
-namespace itd::core
+namespace itd::utility
 {
 	template <typename Type> constexpr inline auto to_underlying(Type _value)
 	{

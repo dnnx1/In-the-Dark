@@ -1,5 +1,7 @@
 #pragma once
 #include "engine/core/main_window/main_window.h"
+#include "engine/core/message/message_bus.h"
+#include "engine/time/time_manager/time_manager.h"
 
 namespace itd
 {
@@ -30,6 +32,9 @@ namespace itd
 
 	private:
 		std::unique_ptr<core::MainWindow> m_window;
+		std::unique_ptr<core::MessageBus> m_message_bus;
+		std::unique_ptr<time::TimeManager> m_time_manager;
+
 		bool m_running{ true };
 	};
 }

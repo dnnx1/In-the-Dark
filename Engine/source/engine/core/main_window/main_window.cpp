@@ -39,16 +39,6 @@ std::unique_ptr<itd::core::MainWindow> itd::core::MainWindow::make_unique(int _w
 	return std::make_unique<MainWindow>(CreationInfo{ _width, _height, _title });
 }
 
-void itd::core::MainWindow::set_should_close(bool _close)
-{
-	glfwSetWindowShouldClose(m_glfw_window.get(), _close ? GLFW_TRUE : GLFW_FALSE);
-}
-
-bool itd::core::MainWindow::should_close() const
-{
-	return glfwWindowShouldClose(m_glfw_window.get());
-}
-
 void itd::core::MainWindow::set_position(glm::ivec2 _pos)
 {
 	if (m_mode != Mode::Windowed || maximized() || iconified()) return;
@@ -160,4 +150,9 @@ void itd::core::MainWindow::set_mode(Mode _mode)
 itd::core::MainWindow::Mode itd::core::MainWindow::mode() const
 {
 	return m_mode;
+}
+
+void itd::core::MainWindow::vsync(bool _enable)
+{
+	glfwSwapInterval(_enable ? 1 : 0);
 }

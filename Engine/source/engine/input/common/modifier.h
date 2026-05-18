@@ -1,6 +1,6 @@
 #pragma once
 #include <cstdint>
-#include "engine/core/utility.h"
+#include "engine/utility/enum.h"
 
 namespace itd::input
 {
@@ -15,16 +15,16 @@ namespace itd::input
 
 	constexpr inline Modifier operator|(Modifier _left, Modifier _right)
 	{
-		return static_cast<Modifier>(core::to_underlying(_left) | core::to_underlying(_right));
+		return static_cast<Modifier>(utility::to_underlying(_left) | utility::to_underlying(_right));
 	}
 
 	constexpr inline Modifier operator&(Modifier _left, Modifier _right)
 	{
-		return static_cast<Modifier>(core::to_underlying(_left) & core::to_underlying(_right));
+		return static_cast<Modifier>(utility::to_underlying(_left) & utility::to_underlying(_right));
 	}
 
 	constexpr inline bool has_flag(Modifier _value, Modifier _flag)
 	{
-		return (core::to_underlying(_value) & core::to_underlying(_flag)) != 0;
+		return (utility::to_underlying(_value) & utility::to_underlying(_flag)) != 0;
 	}
 }
