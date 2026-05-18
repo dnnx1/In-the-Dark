@@ -5,6 +5,8 @@
 #include "engine/graphics/renderer/renderer.h"
 #include "engine/time/time_manager/time_manager.h"
 #include "engine/input/keyboard/keyboard.h"
+#include "engine/input/mouse/mouse.h"
+#include "engine/input/cursor/cursor.h"
 
 namespace itd
 {
@@ -43,6 +45,8 @@ namespace itd
 		std::unique_ptr<time::TimeManager> m_time_manager;
 
 		std::unique_ptr<input::Keyboard> m_keyboard;
+		std::unique_ptr<input::Mouse> m_mouse;
+		std::unique_ptr<input::Cursor> m_cursor;
 
 		bool m_running{ true };
 	};

@@ -1,5 +1,6 @@
 #pragma once
 #include <array>
+#include <memory>
 #include "engine/input/keyboard/keyboard_api.h"
 #include "engine/input/common/action.h"
 #include "engine/utility/enum.h"
@@ -29,9 +30,9 @@ namespace itd::input
 		static std::unique_ptr<Keyboard> make_unique();
 
 	public:
-		bool pressed(KeyCode _code) override;
-		bool just_pressed(KeyCode _code) override;
-		bool released(KeyCode _code) override;
+		bool pressed(KeyCode _code) const override;
+		bool just_pressed(KeyCode _code) const override;
+		bool released(KeyCode _code) const override;
 		void set(KeyCode _code, Action _action);
 
 	private:

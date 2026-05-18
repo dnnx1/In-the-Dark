@@ -95,8 +95,10 @@
     <ClCompile Include="source\engine\core\message\message_bus.cpp" />
     <ClCompile Include="source\engine\graphics\graphics\graphics.cpp" />
     <ClCompile Include="source\engine\graphics\renderer\renderer.cpp" />
+    <ClCompile Include="source\engine\input\cursor\cursor.cpp" />
     <ClCompile Include="source\engine\input\frame_counter.cpp" />
     <ClCompile Include="source\engine\input\keyboard\keyboard.cpp" />
+    <ClCompile Include="source\engine\input\mouse\mouse.cpp" />
     <ClCompile Include="source\engine\time\clock\clock.cpp" />
     <ClCompile Include="source\engine\time\stopwatch\stopwatch.cpp" />
     <ClCompile Include="source\engine\time\time_manager\time_manager.cpp" />
@@ -117,9 +119,13 @@
     <ClInclude Include="source\engine\input\common\action.h" />
     <ClInclude Include="source\engine\input\common\key_code.h" />
     <ClInclude Include="source\engine\input\common\mouse_code.h" />
+    <ClInclude Include="source\engine\input\cursor\cursor.h" />
+    <ClInclude Include="source\engine\input\cursor\cursor_api.h" />
     <ClInclude Include="source\engine\input\frame_counter.h" />
     <ClInclude Include="source\engine\input\keyboard\keyboard.h" />
     <ClInclude Include="source\engine\input\keyboard\keyboard_api.h" />
+    <ClInclude Include="source\engine\input\mouse\mouse.h" />
+    <ClInclude Include="source\engine\input\mouse\mouse_api.h" />
     <ClInclude Include="source\engine\time\clock\clock.h" />
     <ClInclude Include="source\engine\time\clock\clock_api.h" />
     <ClInclude Include="source\engine\time\stopwatch\stopwatch.h" />

@@ -18,24 +18,23 @@ std::unique_ptr<itd::input::Keyboard> itd::input::Keyboard::make_unique()
 	return std::make_unique<Keyboard>();
 }
 
-bool itd::input::Keyboard::pressed(KeyCode _code)
+bool itd::input::Keyboard::pressed(KeyCode _code) const
 {
 	return m_data[utility::to_underlying(_code)].active;
 }
 
-bool itd::input::Keyboard::just_pressed(KeyCode _code)
+bool itd::input::Keyboard::just_pressed(KeyCode _code) const
 {
 	return m_data[utility::to_underlying(_code)].active && m_data[utility::to_underlying(_code)].frame == FrameCounter::value;
 }
 
-bool itd::input::Keyboard::released(KeyCode _code)
+bool itd::input::Keyboard::released(KeyCode _code) const
 {
 	return !m_data[utility::to_underlying(_code)].active && m_data[utility::to_underlying(_code)].frame == FrameCounter::value;
 }
 
 void itd::input::Keyboard::set(KeyCode _code, Action _action)
 {
-	if (_action == Action::Undefined) return;
 	m_data[utility::to_underlying(_code)].active = (_action == Action::Press) ? true : false;
 	m_data[utility::to_underlying(_code)].frame = FrameCounter::value;
 }

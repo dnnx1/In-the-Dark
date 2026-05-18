@@ -24,6 +24,8 @@ void itd::Application::initialize(int _argc, char* _argv[])
 	m_time_manager = time::TimeManager::make_unique(2.0f / 60.0f);
 
 	m_keyboard = input::Keyboard::make_unique();
+	m_mouse = input::Mouse::make_unique();
+	m_cursor = input::Cursor::make_unique();
 
 	// === Preparation ===
 	m_window->vsync(false);
@@ -66,10 +68,17 @@ void itd::Application::handle_events()
 				// TODO later close popup
 				m_message_bus->send(core::CloseGameMessage{});
 			}
-
-			if (auto* evt = core::event_try_cast<core::KeyEvent>(_event))
+			else if (auto* evt = core::event_try_cast<core::KeyEvent>(_event))
 			{
 				m_keyboard->set(evt->code, evt->action);
+			}
+			else if (auto* evt = core::event_try_cast<core::MouseButtonEvent>(_event))
+			{
+				m_mouse->set(evt->code, evt->action);
+			}
+			else if (auto* evt = core::event_try_cast<core::CursorPosEvent>(_event))
+			{
+				m_cursor->set_position(evt->position);
 			}
 		});
 }
