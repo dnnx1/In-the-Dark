@@ -104,8 +104,8 @@
     <ClCompile Include="source\engine\time\time_manager\time_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\engine\core\engine_api.h" />
-    <ClInclude Include="source\engine\core\error.h" />
+    <ClInclude Include="source\engine\engine_api.h" />
+    <ClInclude Include="source\engine\error.h" />
     <ClInclude Include="source\engine\core\main_window\event.h" />
     <ClInclude Include="source\engine\core\message\message.h" />
     <ClInclude Include="source\engine\core\message\message_bus.h" />

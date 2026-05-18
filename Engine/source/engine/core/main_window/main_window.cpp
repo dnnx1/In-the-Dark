@@ -1,5 +1,5 @@
-#include "engine/core/error.h"
-#include "engine/core/engine_api.h"
+#include "engine/engine_api.h"
+#include "engine/error.h"
 #include "engine/core/main_window/main_window.h"
 
 itd::core::MainWindow::MainWindow(const CreationInfo& _info)

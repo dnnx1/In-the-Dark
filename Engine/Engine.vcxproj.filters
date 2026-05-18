@@ -53,7 +53,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\engine\core\error.h">
+    <ClInclude Include="source\engine\error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\engine\core\main_window\main_window_api.h">
@@ -74,7 +74,7 @@
     <ClInclude Include="source\engine\input\common\mouse_code.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\engine\core\engine_api.h">
+    <ClInclude Include="source\engine\engine_api.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\engine\core\message\message.h">

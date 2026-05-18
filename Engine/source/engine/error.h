@@ -2,7 +2,7 @@
 #include <string>
 #include <stdexcept>
 
-namespace itd::core
+namespace itd
 {
 	class Error : public std::runtime_error
 	{

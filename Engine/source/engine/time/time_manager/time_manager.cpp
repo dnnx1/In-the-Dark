@@ -1,7 +1,7 @@
 #define NOMINMAX
 #include <thread>
 #include <Windows.h>
-#include "engine/core/engine_api.h"
+#include "engine/engine_api.h"
 #include "engine/time/time_manager/time_manager.h"
 #include "engine/utility/math.h"
 
@@ -10,17 +10,17 @@ itd::time::TimeManager::TimeManager(float _dt_cap, float _fixed_dt, int _max_fix
 	, m_fixed_delta_time(_fixed_dt)
 {
 	m_max_accumulator = static_cast<float>(_max_fixed_steps) * m_fixed_delta_time;
-	core::EngineAPI::instance().time_manager = this;
-
 	timeBeginPeriod(1);
+
+	EngineAPI::instance().time_manager = this;
 }
 
 itd::time::TimeManager::~TimeManager()
 {
-	if (core::EngineAPI::instance().time_manager == this)
-		core::EngineAPI::instance().time_manager = nullptr;
-
 	timeEndPeriod(1);
+
+	if (EngineAPI::instance().time_manager == this)
+		EngineAPI::instance().time_manager = nullptr;
 }
 
 std::unique_ptr<itd::time::TimeManager> itd::time::TimeManager::make_unique(float _dt_cap, float _fixed_dt, int _max_fixed_steps)

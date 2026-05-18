@@ -1,16 +1,16 @@
-#include "engine/core/engine_api.h"
+#include "engine/engine_api.h"
 #include "engine/input/keyboard/keyboard.h"
 #include "engine/input/frame_counter.h"
 
 itd::input::Keyboard::Keyboard()
 {
-	core::EngineAPI::instance().keyboard = this;
+	EngineAPI::instance().keyboard = this;
 }
 
 itd::input::Keyboard::~Keyboard()
 {
-	if (core::EngineAPI::instance().keyboard == this)
-		core::EngineAPI::instance().keyboard = nullptr;
+	if (EngineAPI::instance().keyboard == this)
+		EngineAPI::instance().keyboard = nullptr;
 }
 
 std::unique_ptr<itd::input::Keyboard> itd::input::Keyboard::make_unique()

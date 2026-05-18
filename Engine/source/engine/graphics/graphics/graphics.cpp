@@ -1,6 +1,6 @@
 #include "external/GL/glew.h"
-#include "engine/core/engine_api.h"
-#include "engine/core/error.h"	
+#include "engine/engine_api.h"
+#include "engine/error.h"	
 #include "engine/graphics/graphics/graphics.h"
 
 static unsigned int to_native_blend_factor(itd::graphics::Graphics::BlendFactor _blend_factor)
@@ -19,7 +19,7 @@ static unsigned int to_native_blend_factor(itd::graphics::Graphics::BlendFactor 
 	case BlendFactor::DstAlpha:			return GL_DST_ALPHA;
 	case BlendFactor::OneMinusDstAlpha:	return GL_ONE_MINUS_DST_ALPHA;
 
-	default: throw itd::core::Error("Graphics", "Invalid blend factor");
+	default: throw itd::Error("Graphics", "Invalid blend factor");
 	}
 }
 
@@ -37,7 +37,7 @@ static unsigned int to_native_depth_func(itd::graphics::Graphics::DepthFunc _dep
 	case DepthFunc::GreaterEqual:	return GL_GEQUAL;
 	case DepthFunc::NotEqual:		return GL_NOTEQUAL;
 
-	default: throw itd::core::Error("Graphics", "Invalid depth func");
+	default: throw itd::Error("Graphics", "Invalid depth func");
 	}
 }
 
@@ -45,7 +45,7 @@ itd::graphics::Graphics::Graphics()
 {
 	glewExperimental = GL_TRUE;
 	if (glewInit() != GLEW_OK)
-		throw core::Error("Graphics", "GLEW initialization failed");
+		throw Error("Graphics", "GLEW initialization failed");
 
 	m_state.blend.enable ? glEnable(GL_BLEND) : glDisable(GL_BLEND);
 	glBlendFunc(to_native_blend_factor(m_state.blend.src), to_native_blend_factor(m_state.blend.dst));
@@ -54,13 +54,13 @@ itd::graphics::Graphics::Graphics()
 	glDepthMask(m_state.depth.write_enable ? GL_TRUE : GL_FALSE);
 	glDepthFunc(to_native_depth_func(m_state.depth.func));
 
-	core::EngineAPI::instance().graphics = this;
+	EngineAPI::instance().graphics = this;
 }
 
 itd::graphics::Graphics::~Graphics()
 {
-	if (core::EngineAPI::instance().graphics == this)
-		core::EngineAPI::instance().graphics = nullptr;
+	if (EngineAPI::instance().graphics == this)
+		EngineAPI::instance().graphics = nullptr;
 }
 
 std::unique_ptr<itd::graphics::Graphics> itd::graphics::Graphics::make_unique()

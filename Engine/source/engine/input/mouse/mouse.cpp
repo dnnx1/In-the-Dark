@@ -1,16 +1,16 @@
-#include "engine/core/engine_api.h"
+#include "engine/engine_api.h"
 #include "engine/input/mouse/mouse.h"
 #include "engine/input/frame_counter.h"
 
 itd::input::Mouse::Mouse()
 {
-	core::EngineAPI::instance().mouse = this;
+	EngineAPI::instance().mouse = this;
 }
 
 itd::input::Mouse::~Mouse()
 {
-	if (core::EngineAPI::instance().mouse == this)
-		core::EngineAPI::instance().mouse = nullptr;
+	if (EngineAPI::instance().mouse == this)
+		EngineAPI::instance().mouse = nullptr;
 }
 
 std::unique_ptr<itd::input::Mouse> itd::input::Mouse::make_unique()

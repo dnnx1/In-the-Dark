@@ -8,14 +8,14 @@
 #include "engine/input/mouse/mouse_api.h"
 #include "engine/input/cursor/cursor_api.h"
 
-namespace itd::core
+namespace itd
 {
 	struct EngineAPI
 	{
 		static EngineAPI& instance() { static EngineAPI api; return api; }
 
-		MainWindowAPI* window{ nullptr };
-		MessageBusAPI* message_bus{ nullptr };
+		core::MainWindowAPI* window{ nullptr };
+		core::MessageBusAPI* message_bus{ nullptr };
 		graphics::GraphicsAPI* graphics{ nullptr };
 		graphics::RendererAPI* renderer{ nullptr };
 		time::TimeManagerAPI* time_manager{ nullptr };

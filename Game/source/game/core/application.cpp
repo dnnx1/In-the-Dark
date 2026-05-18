@@ -1,4 +1,4 @@
-#include "engine/core/error.h"
+#include "engine/error.h"
 #include "engine/input/frame_counter.h"
 #include "game/core/application.h"
 
@@ -10,7 +10,7 @@ void itd::Application::run(int _argc, char* _argv[])
 		loop();
 		terminate();
 	}
-	catch (const core::Error& _e) {}
+	catch (const Error& _e) {}
 	catch (const std::exception& _e) {}
 }
 
