@@ -99,6 +99,7 @@
     <ClCompile Include="source\engine\input\frame_counter.cpp" />
     <ClCompile Include="source\engine\input\keyboard\keyboard.cpp" />
     <ClCompile Include="source\engine\input\mouse\mouse.cpp" />
+    <ClCompile Include="source\engine\scene\scene_manager\scene_manager.cpp" />
     <ClCompile Include="source\engine\time\clock\clock.cpp" />
     <ClCompile Include="source\engine\time\stopwatch\stopwatch.cpp" />
     <ClCompile Include="source\engine\time\time_manager\time_manager.cpp" />
@@ -126,6 +127,9 @@
     <ClInclude Include="source\engine\input\keyboard\keyboard_api.h" />
     <ClInclude Include="source\engine\input\mouse\mouse.h" />
     <ClInclude Include="source\engine\input\mouse\mouse_api.h" />
+    <ClInclude Include="source\engine\scene\scene.h" />
+    <ClInclude Include="source\engine\scene\scene_manager\scene_manager.h" />
+    <ClInclude Include="source\engine\scene\scene_manager\scene_manager_api.h" />
     <ClInclude Include="source\engine\time\clock\clock.h" />
     <ClInclude Include="source\engine\time\clock\clock_api.h" />
     <ClInclude Include="source\engine\time\stopwatch\stopwatch.h" />

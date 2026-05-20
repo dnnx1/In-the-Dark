@@ -7,6 +7,7 @@
 #include "engine/input/keyboard/keyboard.h"
 #include "engine/input/mouse/mouse.h"
 #include "engine/input/cursor/cursor.h"
+#include "engine/scene/scene_manager/scene_manager.h"
 
 namespace itd
 {
@@ -47,6 +48,8 @@ namespace itd
 		std::unique_ptr<input::Keyboard> m_keyboard;
 		std::unique_ptr<input::Mouse> m_mouse;
 		std::unique_ptr<input::Cursor> m_cursor;
+
+		std::unique_ptr<scene::SceneManager> m_scene_manager;
 
 		bool m_running{ true };
 	};

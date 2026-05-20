@@ -7,6 +7,7 @@
 #include "engine/input/keyboard/keyboard_api.h"
 #include "engine/input/mouse/mouse_api.h"
 #include "engine/input/cursor/cursor_api.h"
+#include "engine/scene/scene_manager/scene_manager_api.h"
 
 namespace itd
 {
@@ -23,5 +24,7 @@ namespace itd
 		input::KeyboardAPI* keyboard{ nullptr };
 		input::MouseAPI* mouse{ nullptr };
 		input::CursorAPI* cursor{ nullptr };
+
+		scene::SceneManagerAPI* scenes{ nullptr };
 	};
 }

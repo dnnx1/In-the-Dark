@@ -97,10 +97,13 @@
   <ItemGroup>
     <ClCompile Include="source\game\core\application.cpp" />
     <ClCompile Include="source\game\core\main.cpp" />
+    <ClCompile Include="source\game\scene\building\building_scene.cpp" />
+    <ClCompile Include="source\game\scene\building\building_scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\game\application.h" />
     <ClInclude Include="source\game\core\application.h" />
+    <ClInclude Include="source\game\scene\building\building_scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

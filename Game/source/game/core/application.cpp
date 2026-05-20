@@ -1,6 +1,8 @@
 #include "engine/error.h"
 #include "engine/input/frame_counter.h"
+
 #include "game/core/application.h"
+#include "game/scene/building/building_scene.h"
 
 void itd::Application::run(int _argc, char* _argv[])
 {
@@ -27,16 +29,21 @@ void itd::Application::initialize(int _argc, char* _argv[])
 	m_mouse = input::Mouse::make_unique();
 	m_cursor = input::Cursor::make_unique();
 
+	m_scene_manager = scene::SceneManager::make_unique();
+
+	// === Scenes creation ===
+	m_scene_manager->create_scene<scene::BuildingScene>();
+
 	// === Preparation ===
 	m_window->vsync(false);
 	m_time_manager->set_framerate(60);
-
-	//m_window->set_mode(core::MainWindow::Mode::Borderless);
 	m_graphics->set_viewport(0, 0, m_window->framebuffer_size().x, m_window->framebuffer_size().y);
+	m_scene_manager->push_scene(scene::BuildingScene::id());
 }
 
 void itd::Application::terminate()
 {
+	m_scene_manager->destroy_scenes();
 }
 
 void itd::Application::loop()
@@ -57,6 +64,7 @@ void itd::Application::begin_frame()
 {
 	m_time_manager->begin_frame();
 	input::FrameCounter::value++;
+	m_scene_manager->apply_pending_changes();
 }
 
 void itd::Application::handle_events()
@@ -91,6 +99,8 @@ void itd::Application::handle_messages()
 			{
 				m_running = false;
 			}
+
+			m_scene_manager->handle_messages(_message);
 		});
 }
 
@@ -98,6 +108,11 @@ void itd::Application::update()
 {
 	m_time_manager->update();
 
+	m_scene_manager->pre_update(m_time_manager->delta_time());
+	m_time_manager->fixed_loop([&](float _fixed_dt) {m_scene_manager->fixed_update(_fixed_dt); });
+	m_scene_manager->post_update(m_time_manager->delta_time());
+
+	// temp for debug
 	if (m_keyboard->just_pressed(input::KeyCode::Escape))
 		m_message_bus->send(core::CloseGameMessage{});
 }
@@ -109,6 +124,9 @@ void itd::Application::render()
 
 	float clear_color[] = { 0.0f, 0.2f, 0.4f, 1.0f };
 	m_graphics->clear_color_attachment(0, clear_color);
+
+	m_scene_manager->prepare_render(m_time_manager->render_alpha());
+	m_scene_manager->render();
 
 	m_window->swap_buffers();
 }
