@@ -98,7 +98,6 @@
     <ClCompile Include="source\game\core\application.cpp" />
     <ClCompile Include="source\game\core\main.cpp" />
     <ClCompile Include="source\game\scene\building\building_scene.cpp" />
-    <ClCompile Include="source\game\scene\building\building_scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\game\application.h" />
