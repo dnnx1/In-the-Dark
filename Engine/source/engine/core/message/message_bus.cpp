@@ -19,5 +19,5 @@ std::unique_ptr<itd::core::MessageBus> itd::core::MessageBus::make_unique()
 
 void itd::core::MessageBus::send(Message&& _message)
 {
-	m_polling ? m_pending_messages.emplace(std::move(_message)) : m_messages.emplace(std::move(_message));
+	m_polling ? m_pending_messages.push(std::move(_message)) : m_messages.push(std::move(_message));
 }

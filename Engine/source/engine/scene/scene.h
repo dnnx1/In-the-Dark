@@ -1,23 +1,24 @@
 #pragma once
 #include <string>
 #include "engine/core/message/message.h"
+#include "engine/utility/hierarchy_id_manager.h"
+#include "engine/world/world.h"
 
 namespace itd::scene
 {
+	class IScene;
+	using SceneTypeID = utility::HierarchyIDManager<IScene>;
+
 	class IScene
 	{
 	public:
 		virtual ~IScene() = default;
 
-	protected:
-		static unsigned int next_id()
-		{
-			static unsigned int unique_id = 0;
-			return unique_id++;
-		}
-
 	public:
-		virtual unsigned int type_id() const = 0;
+		void apply_pending_changes() { m_world.apply_pending_changes(); }
+		void move_world(world::World&& _world) { m_world = std::move(_world); }
+
+		virtual uint32_t type_id() const = 0;
 
 		virtual void create_callback() {}
 		virtual void destroy_callback() {}
@@ -31,6 +32,12 @@ namespace itd::scene
 		virtual void post_update(float _dt) {}
 		virtual void prepare_render(float _alpha) {}
 		virtual void render() {}
+
+	protected:
+		template <typename ObjectType> inline world::ObjectStorageAPI<ObjectType>& storage() { return m_world.storage<ObjectType>(); }
+
+	private:
+		world::World m_world;
 	};
 
 	template <typename Derived>
@@ -40,13 +47,9 @@ namespace itd::scene
 		virtual ~Scene() = default;
 
 	public:
-		static unsigned int id()
-		{
-			static unsigned int unique_id = next_id();
-			return unique_id;
-		}
+		uint32_t type_id() const override { return SceneTypeID::get<Derived>(); }
 
-	public:
-		unsigned int type_id() const override { return id(); }
+	private:
+		using IScene::apply_pending_changes;
 	};
 }

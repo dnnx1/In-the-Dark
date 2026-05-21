@@ -80,55 +80,55 @@ void itd::core::MainWindow::setup_callbacks()
 		{
 			WindowSizeEvent evt;
 			evt.size = glm::ivec2(_width, _height);
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetWindowFocusCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _focused)
 		{
 			WindowFocusEvent evt;
 			evt.focused = _focused;
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetWindowIconifyCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _iconified)
 		{
 			WindowIconifyEvent evt;
 			evt.iconified = _iconified;
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetWindowMaximizeCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _maximized)
 		{
 			WindowMaximizeEvent evt;
 			evt.maximized = _maximized;
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetWindowContentScaleCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, float _scaleX, float _scaleY)
 		{
 			WindowContentScaleEvent evt;
 			evt.scale = glm::vec2(_scaleX, _scaleY);
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetWindowPosCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _posX, int _posY)
 		{
 			WindowPosEvent evt;
 			evt.position = glm::ivec2(_posX, _posY);
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetWindowCloseCallback(m_glfw_window.get(), [](GLFWwindow* _glfw)
 		{
 			WindowCloseEvent evt;
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetFramebufferSizeCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _width, int _height)
 		{
 			FramebufferSizeEvent evt;
 			evt.size = glm::ivec2(_width, _height);
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetKeyCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _key, int /*_scancode*/, int _action, int /*_mods*/)
@@ -138,14 +138,14 @@ void itd::core::MainWindow::setup_callbacks()
 				KeyEvent evt;
 				evt.action = input::Action::Press;
 				evt.code = to_key_code(_key);
-				to_main_window(_glfw)->m_events.emplace(std::move(evt));
+				to_main_window(_glfw)->m_events.push(std::move(evt));
 			}
 			else if (_action == GLFW_RELEASE)
 			{
 				KeyEvent evt;
 				evt.action = input::Action::Release;
 				evt.code = to_key_code(_key);
-				to_main_window(_glfw)->m_events.emplace(std::move(evt));
+				to_main_window(_glfw)->m_events.push(std::move(evt));
 			}
 		});
 
@@ -153,7 +153,7 @@ void itd::core::MainWindow::setup_callbacks()
 		{
 			CharEvent evt;
 			evt.codepoint = _codepoint;
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetMouseButtonCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _key, int _action, int /*_mods*/)
@@ -163,14 +163,14 @@ void itd::core::MainWindow::setup_callbacks()
 				MouseButtonEvent evt;
 				evt.action = input::Action::Press;
 				evt.code = to_mouse_code(_key);
-				to_main_window(_glfw)->m_events.emplace(std::move(evt));
+				to_main_window(_glfw)->m_events.push(std::move(evt));
 			}
 			else if (_action == GLFW_RELEASE)
 			{
 				MouseButtonEvent evt;
 				evt.action = input::Action::Release;
 				evt.code = to_mouse_code(_key);
-				to_main_window(_glfw)->m_events.emplace(std::move(evt));
+				to_main_window(_glfw)->m_events.push(std::move(evt));
 			}
 		});
 
@@ -178,20 +178,20 @@ void itd::core::MainWindow::setup_callbacks()
 		{
 			CursorPosEvent evt;
 			evt.position = glm::vec2(_x, _y);
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetCursorEnterCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, int _entered)
 		{
 			CursorEnterEvent evt;
 			evt.entered = _entered;
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 
 	glfwSetScrollCallback(m_glfw_window.get(), [](GLFWwindow* _glfw, double _offsetX, double _offsetY)
 		{
 			ScrollEvent evt;
 			evt.offset = glm::vec2(_offsetX, _offsetY);
-			to_main_window(_glfw)->m_events.emplace(std::move(evt));
+			to_main_window(_glfw)->m_events.push(std::move(evt));
 		});
 }

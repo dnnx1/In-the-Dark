@@ -21,6 +21,8 @@ void itd::Application::initialize(int _argc, char* _argv[])
 	// === Creation ===
 	m_window = core::MainWindow::make_unique(960, 640, "In the Dark");
 	m_message_bus = core::MessageBus::make_unique();
+	m_main_thread_worker = core::MainThreadWorker::make_unique();
+	m_async_worker = core::AsyncWorker::make_unique();
 	m_graphics = graphics::Graphics::make_unique();
 	m_renderer = graphics::Renderer::make_unique();
 	m_time_manager = time::TimeManager::make_unique(2.0f / 60.0f);
@@ -38,12 +40,13 @@ void itd::Application::initialize(int _argc, char* _argv[])
 	m_window->vsync(false);
 	m_time_manager->set_framerate(60);
 	m_graphics->set_viewport(0, 0, m_window->framebuffer_size().x, m_window->framebuffer_size().y);
-	m_scene_manager->push_scene(scene::BuildingScene::id());
+	m_scene_manager->push_scene(scene::SceneTypeID::get<scene::BuildingScene>());
 }
 
 void itd::Application::terminate()
 {
 	m_scene_manager->destroy_scenes();
+	m_async_worker->stop();
 }
 
 void itd::Application::loop()
@@ -64,7 +67,7 @@ void itd::Application::begin_frame()
 {
 	m_time_manager->begin_frame();
 	input::FrameCounter::value++;
-	m_scene_manager->apply_pending_changes();
+	m_main_thread_worker->execute();
 }
 
 void itd::Application::handle_events()

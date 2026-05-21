@@ -3,7 +3,6 @@
 #include <unordered_set>
 #include <vector>
 #include <memory>
-#include <queue>
 #include "engine/error.h"
 #include "engine/scene/scene_manager/scene_manager_api.h"
 #include "engine/scene/scene.h"
@@ -14,11 +13,6 @@ namespace itd::scene
 	{
 	private:
 		using ScenePtr = std::shared_ptr<IScene>;
-
-		struct PushScene { unsigned int id; };
-		struct PopScene {};
-		struct ClearScenes {};
-		using PendingChanges = std::variant<std::monostate, PushScene, PopScene, ClearScenes>;
 
 	public:
 		SceneManager();
@@ -42,7 +36,7 @@ namespace itd::scene
 					delete _raw;
 				});
 
-			unsigned int type_id = scene->type_id();
+			auto type_id = scene->type_id();
 			auto [it, inserted] = m_list.try_emplace(type_id, std::move(scene));
 			if (!inserted)
 				throw Error("SceneManager", std::to_string(type_id) + " scene already exists");
@@ -51,12 +45,11 @@ namespace itd::scene
 		}
 
 	public:
-		void push_scene(unsigned int _id) override;
+		void push_scene(uint32_t _id) override;
 		void pop_scene() override;
 		void clear_scenes() override;
 
 		void destroy_scenes();
-		void apply_pending_changes();
 
 		void handle_messages(const core::Message& _message);
 		void pre_update(float _dt);
@@ -66,10 +59,9 @@ namespace itd::scene
 		void render();
 
 	private:
-		std::unordered_map<unsigned int, ScenePtr> m_list;
+		std::unordered_map<uint32_t, ScenePtr> m_list;
 		std::vector<ScenePtr> m_stack;
 
-		std::queue<PendingChanges> m_pending_changes;
-		std::unordered_set<unsigned int> m_start_callback_used_list;
+		std::unordered_set<uint32_t> m_start_callback_used_list;
 	};
 }
