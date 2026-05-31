@@ -21,8 +21,10 @@ void itd::Application::initialize(int _argc, char* _argv[])
 	// === Creation ===
 	m_window = core::MainWindow::make_unique(960, 640, "In the Dark");
 	m_message_bus = core::MessageBus::make_unique();
+	m_worker_thread = core::WorkerThread::make_shared();
 	m_main_thread_worker = core::MainThreadWorker::make_unique();
-	m_async_worker = core::AsyncWorker::make_unique();
+	m_async_worker = core::AsyncWorker::make_unique(m_worker_thread);
+	m_deferred_async_worker = core::DeferredAsyncWorker::make_unique(m_worker_thread);
 	m_graphics = graphics::Graphics::make_unique();
 	m_renderer = graphics::Renderer::make_unique();
 	m_time_manager = time::TimeManager::make_unique(2.0f / 60.0f);
@@ -46,7 +48,7 @@ void itd::Application::initialize(int _argc, char* _argv[])
 void itd::Application::terminate()
 {
 	m_scene_manager->destroy_scenes();
-	m_async_worker->stop();
+	m_worker_thread->stop();
 }
 
 void itd::Application::loop()
@@ -68,6 +70,7 @@ void itd::Application::begin_frame()
 	m_time_manager->begin_frame();
 	input::FrameCounter::value++;
 	m_main_thread_worker->execute();
+	m_deferred_async_worker->dispatch();
 }
 
 void itd::Application::handle_events()
@@ -136,5 +139,8 @@ void itd::Application::render()
 
 void itd::Application::end_frame()
 {
+	if (m_worker_thread->failed())
+		std::rethrow_exception(m_worker_thread->error());
+
 	m_time_manager->end_frame();
 }

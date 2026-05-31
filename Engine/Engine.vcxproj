@@ -94,7 +94,9 @@
     <ClCompile Include="source\engine\core\main_window\main_window_setup_callbacks.cpp" />
     <ClCompile Include="source\engine\core\message\message_bus.cpp" />
     <ClCompile Include="source\engine\core\worker\async_worker.cpp" />
+    <ClCompile Include="source\engine\core\worker\deferred_async_worker.cpp" />
     <ClCompile Include="source\engine\core\worker\main_thread_worker.cpp" />
+    <ClCompile Include="source\engine\core\worker\worker_thread.cpp" />
     <ClCompile Include="source\engine\game_object\game_object_manager.cpp" />
     <ClCompile Include="source\engine\game_object\list\player.cpp" />
     <ClCompile Include="source\engine\graphics\graphics\graphics.cpp" />
@@ -110,8 +112,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\engine\core\worker\async_worker.h" />
+    <ClInclude Include="source\engine\core\worker\deferred_async_worker.h" />
     <ClInclude Include="source\engine\core\worker\main_thread_worker.h" />
     <ClInclude Include="source\engine\core\worker\worker_api.h" />
+    <ClInclude Include="source\engine\core\worker\worker_thread.h" />
     <ClInclude Include="source\engine\engine_api.h" />
     <ClInclude Include="source\engine\error.h" />
     <ClInclude Include="source\engine\core\main_window\event.h" />

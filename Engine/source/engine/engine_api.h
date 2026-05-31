@@ -20,6 +20,7 @@ namespace itd
 		core::MessageBusAPI* message_bus{ nullptr };
 		core::WorkerAPI* main_thread_worker{ nullptr };
 		core::WorkerAPI* async_worker{ nullptr };
+		core::WorkerAPI* deferred_async_worker{ nullptr };
 		graphics::GraphicsAPI* graphics{ nullptr };
 		graphics::RendererAPI* renderer{ nullptr };
 		time::TimeManagerAPI* time_manager{ nullptr };

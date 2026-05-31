@@ -1,8 +1,10 @@
 #pragma once
 #include "engine/core/main_window/main_window.h"
 #include "engine/core/message/message_bus.h"
+#include "engine/core/worker/worker_thread.h"
 #include "engine/core/worker/main_thread_worker.h"
 #include "engine/core/worker/async_worker.h"
+#include "engine/core/worker/deferred_async_worker.h"
 #include "engine/graphics/graphics/graphics.h"
 #include "engine/graphics/renderer/renderer.h"
 #include "engine/time/time_manager/time_manager.h"
@@ -43,8 +45,10 @@ namespace itd
 	private:
 		std::unique_ptr<core::MainWindow> m_window;
 		std::unique_ptr<core::MessageBus> m_message_bus;
+		std::shared_ptr<core::WorkerThread> m_worker_thread;
 		std::unique_ptr<core::MainThreadWorker> m_main_thread_worker;
 		std::unique_ptr<core::AsyncWorker> m_async_worker;
+		std::unique_ptr<core::DeferredAsyncWorker> m_deferred_async_worker;
 		std::unique_ptr<graphics::Graphics> m_graphics;
 		std::unique_ptr<graphics::Renderer> m_renderer;
 		std::unique_ptr<time::TimeManager> m_time_manager;
