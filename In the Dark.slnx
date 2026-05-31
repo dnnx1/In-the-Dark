@@ -2,8 +2,5 @@
   <Configurations>
     <Platform Name="x64" />
   </Configurations>
-  <Project Path="D:/work/In the Dark/Engine/Engine.vcxproj" Id="c595b7ea-d814-4ea8-a954-78f2d0348f29" />
-  <Project Path="D:/work/In the Dark/Game/Game.vcxproj" Id="f8dadad0-22ce-489a-b861-5e914ec78fb4">
-    <BuildDependency Project="D:/work/In the Dark/Engine/Engine.vcxproj" />
-  </Project>
+  <Project Path="D:/work/In the Dark/In the Dark/In the Dark.vcxproj" Id="c595b7ea-d814-4ea8-a954-78f2d0348f29" />
 </Solution>

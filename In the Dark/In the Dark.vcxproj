@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c595b7ea-d814-4ea8-a954-78f2d0348f29}</ProjectGuid>
+    <RootNamespace>Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>In the Dark</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\$(ProjectName)\bin\</OutDir>
+    <IntDir>$(SolutionDir)Build\$(Configuration)\$(ProjectName)\temp\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\$(ProjectName)\bin\</OutDir>
+    <IntDir>$(SolutionDir)Build\$(Configuration)\$(ProjectName)\temp\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_INCLUDE_NONE</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)source\;$(SolutionDir)External\include\;$(SolutionDir)External\include\external\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>MSVCRT;LIBCMT</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;GLEW_STATIC;GLFW_INCLUDE_NONE</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)source\;$(SolutionDir)External\include\;$(SolutionDir)External\include\external\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBCMT</IgnoreSpecificDefaultLibraries>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;glew32s.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\in_the_dark\application.cpp" />
+    <ClCompile Include="source\in_the_dark\core\main_window\main_window.cpp" />
+    <ClCompile Include="source\in_the_dark\core\main_window\main_window_setup_callbacks.cpp" />
+    <ClCompile Include="source\in_the_dark\core\message\message_bus.cpp" />
+    <ClCompile Include="source\in_the_dark\core\worker\async_worker.cpp" />
+    <ClCompile Include="source\in_the_dark\core\worker\deferred_async_worker.cpp" />
+    <ClCompile Include="source\in_the_dark\core\worker\main_thread_worker.cpp" />
+    <ClCompile Include="source\in_the_dark\core\worker\worker_thread.cpp" />
+    <ClCompile Include="source\in_the_dark\game_object\game_object_manager.cpp" />
+    <ClCompile Include="source\in_the_dark\game_object\list\obstacle.cpp" />
+    <ClCompile Include="source\in_the_dark\game_object\list\player.cpp" />
+    <ClCompile Include="source\in_the_dark\graphics\graphics\graphics.cpp" />
+    <ClCompile Include="source\in_the_dark\graphics\renderer\renderer.cpp" />
+    <ClCompile Include="source\in_the_dark\input\cursor\cursor.cpp" />
+    <ClCompile Include="source\in_the_dark\input\frame_counter.cpp" />
+    <ClCompile Include="source\in_the_dark\input\keyboard\keyboard.cpp" />
+    <ClCompile Include="source\in_the_dark\input\mouse\mouse.cpp" />
+    <ClCompile Include="source\in_the_dark\main.cpp" />
+    <ClCompile Include="source\in_the_dark\scene\building\building_scene.cpp" />
+    <ClCompile Include="source\in_the_dark\scene\scene_manager\scene_manager.cpp" />
+    <ClCompile Include="source\in_the_dark\time\clock\clock.cpp" />
+    <ClCompile Include="source\in_the_dark\time\stopwatch\stopwatch.cpp" />
+    <ClCompile Include="source\in_the_dark\time\time_manager\time_manager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\in_the_dark\application.h" />
+    <ClInclude Include="source\in_the_dark\core\worker\async_worker.h" />
+    <ClInclude Include="source\in_the_dark\core\worker\deferred_async_worker.h" />
+    <ClInclude Include="source\in_the_dark\core\worker\main_thread_worker.h" />
+    <ClInclude Include="source\in_the_dark\core\worker\worker_api.h" />
+    <ClInclude Include="source\in_the_dark\core\worker\worker_thread.h" />
+    <ClInclude Include="source\in_the_dark\engine_api.h" />
+    <ClInclude Include="source\in_the_dark\error.h" />
+    <ClInclude Include="source\in_the_dark\core\main_window\event.h" />
+    <ClInclude Include="source\in_the_dark\core\message\message.h" />
+    <ClInclude Include="source\in_the_dark\core\message\message_bus.h" />
+    <ClInclude Include="source\in_the_dark\core\message\message_bus_api.h" />
+    <ClInclude Include="source\in_the_dark\core\main_window\main_window.h" />
+    <ClInclude Include="source\in_the_dark\core\main_window\main_window_api.h" />
+    <ClInclude Include="source\in_the_dark\game_object\game_object_list.h" />
+    <ClInclude Include="source\in_the_dark\game_object\game_object_manager.h" />
+    <ClInclude Include="source\in_the_dark\game_object\game_object_storage.h" />
+    <ClInclude Include="source\in_the_dark\game_object\list\obstacle.h" />
+    <ClInclude Include="source\in_the_dark\game_object\list\player.h" />
+    <ClInclude Include="source\in_the_dark\game_object\snapshot_manager.h" />
+    <ClInclude Include="source\in_the_dark\game_object\snapshot_storage.h" />
+    <ClInclude Include="source\in_the_dark\graphics\graphics\graphics.h" />
+    <ClInclude Include="source\in_the_dark\graphics\graphics\graphics_api.h" />
+    <ClInclude Include="source\in_the_dark\graphics\renderer\renderer.h" />
+    <ClInclude Include="source\in_the_dark\graphics\renderer\renderer_api.h" />
+    <ClInclude Include="source\in_the_dark\input\common\action.h" />
+    <ClInclude Include="source\in_the_dark\input\common\key_code.h" />
+    <ClInclude Include="source\in_the_dark\input\common\mouse_code.h" />
+    <ClInclude Include="source\in_the_dark\input\cursor\cursor.h" />
+    <ClInclude Include="source\in_the_dark\input\cursor\cursor_api.h" />
+    <ClInclude Include="source\in_the_dark\input\frame_counter.h" />
+    <ClInclude Include="source\in_the_dark\input\keyboard\keyboard.h" />
+    <ClInclude Include="source\in_the_dark\input\keyboard\keyboard_api.h" />
+    <ClInclude Include="source\in_the_dark\input\mouse\mouse.h" />
+    <ClInclude Include="source\in_the_dark\input\mouse\mouse_api.h" />
+    <ClInclude Include="source\in_the_dark\scene\building\building_scene.h" />
+    <ClInclude Include="source\in_the_dark\scene\game\game_scene.h" />
+    <ClInclude Include="source\in_the_dark\scene\scene.h" />
+    <ClInclude Include="source\in_the_dark\scene\scene_manager\scene_manager.h" />
+    <ClInclude Include="source\in_the_dark\scene\scene_manager\scene_manager_api.h" />
+    <ClInclude Include="source\in_the_dark\time\clock\clock.h" />
+    <ClInclude Include="source\in_the_dark\time\clock\clock_api.h" />
+    <ClInclude Include="source\in_the_dark\time\stopwatch\stopwatch.h" />
+    <ClInclude Include="source\in_the_dark\time\stopwatch\stopwatch_api.h" />
+    <ClInclude Include="source\in_the_dark\time\time_manager\time_manager.h" />
+    <ClInclude Include="source\in_the_dark\time\time_manager\time_manager_api.h" />
+    <ClInclude Include="source\in_the_dark\utility\enum.h" />
+    <ClInclude Include="source\in_the_dark\utility\hierarchy_id_manager.h" />
+    <ClInclude Include="source\in_the_dark\utility\math.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
