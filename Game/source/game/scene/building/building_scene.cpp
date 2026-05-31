@@ -1,6 +1,9 @@
 #include "game/scene/building/building_scene.h"
 
-void itd::scene::BuildingScene::start_callback()
+void itd::scene::BuildingScene::create_callback()
 {
-	printf("start");
+}
+
+void itd::scene::BuildingScene::pre_update(float _dt)
+{
 }

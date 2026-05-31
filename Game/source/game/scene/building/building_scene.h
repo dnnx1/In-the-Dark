@@ -16,6 +16,10 @@ namespace itd::scene
 		BuildingScene& operator=(BuildingScene&&) = delete;
 
 	public:
-		void start_callback() override;
+		void create_callback() override;
+
+		void pre_update(float _dt) override;
+
+	private:
 	};
 }

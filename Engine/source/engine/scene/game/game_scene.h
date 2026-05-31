@@ -15,6 +15,5 @@ namespace itd::scene
 		GameScene& operator=(const GameScene&) = delete;
 		GameScene& operator=(GameScene&&) = delete;
 
-	public:
 	};
 }

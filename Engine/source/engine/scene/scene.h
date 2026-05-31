@@ -2,7 +2,6 @@
 #include <string>
 #include "engine/core/message/message.h"
 #include "engine/utility/hierarchy_id_manager.h"
-#include "engine/world/world.h"
 
 namespace itd::scene
 {
@@ -15,9 +14,6 @@ namespace itd::scene
 		virtual ~IScene() = default;
 
 	public:
-		void apply_pending_changes() { m_world.apply_pending_changes(); }
-		void move_world(world::World&& _world) { m_world = std::move(_world); }
-
 		virtual uint32_t type_id() const = 0;
 
 		virtual void create_callback() {}
@@ -32,24 +28,12 @@ namespace itd::scene
 		virtual void post_update(float _dt) {}
 		virtual void prepare_render(float _alpha) {}
 		virtual void render() {}
-
-	protected:
-		template <typename ObjectType> inline world::ObjectStorageAPI<ObjectType>& storage() { return m_world.storage<ObjectType>(); }
-
-	private:
-		world::World m_world;
 	};
 
 	template <typename Derived>
 	class Scene : public IScene
 	{
 	public:
-		virtual ~Scene() = default;
-
-	public:
 		uint32_t type_id() const override { return SceneTypeID::get<Derived>(); }
-
-	private:
-		using IScene::apply_pending_changes;
 	};
 }

@@ -95,6 +95,8 @@
     <ClCompile Include="source\engine\core\message\message_bus.cpp" />
     <ClCompile Include="source\engine\core\worker\async_worker.cpp" />
     <ClCompile Include="source\engine\core\worker\main_thread_worker.cpp" />
+    <ClCompile Include="source\engine\game_object\game_object_manager.cpp" />
+    <ClCompile Include="source\engine\game_object\list\player.cpp" />
     <ClCompile Include="source\engine\graphics\graphics\graphics.cpp" />
     <ClCompile Include="source\engine\graphics\renderer\renderer.cpp" />
     <ClCompile Include="source\engine\input\cursor\cursor.cpp" />
@@ -105,7 +107,6 @@
     <ClCompile Include="source\engine\time\clock\clock.cpp" />
     <ClCompile Include="source\engine\time\stopwatch\stopwatch.cpp" />
     <ClCompile Include="source\engine\time\time_manager\time_manager.cpp" />
-    <ClCompile Include="source\engine\world\game_object\object.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\engine\core\worker\async_worker.h" />
@@ -119,6 +120,12 @@
     <ClInclude Include="source\engine\core\message\message_bus_api.h" />
     <ClInclude Include="source\engine\core\main_window\main_window.h" />
     <ClInclude Include="source\engine\core\main_window\main_window_api.h" />
+    <ClInclude Include="source\engine\game_object\game_object_list.h" />
+    <ClInclude Include="source\engine\game_object\game_object_manager.h" />
+    <ClInclude Include="source\engine\game_object\game_object_storage.h" />
+    <ClInclude Include="source\engine\game_object\list\player.h" />
+    <ClInclude Include="source\engine\game_object\snapshot_manager.h" />
+    <ClInclude Include="source\engine\game_object\snapshot_storage.h" />
     <ClInclude Include="source\engine\graphics\graphics\graphics.h" />
     <ClInclude Include="source\engine\graphics\graphics\graphics_api.h" />
     <ClInclude Include="source\engine\graphics\renderer\renderer.h" />
@@ -133,7 +140,7 @@
     <ClInclude Include="source\engine\input\keyboard\keyboard_api.h" />
     <ClInclude Include="source\engine\input\mouse\mouse.h" />
     <ClInclude Include="source\engine\input\mouse\mouse_api.h" />
-    <ClInclude Include="source\engine\scene\game\game.h" />
+    <ClInclude Include="source\engine\scene\game\game_scene.h" />
     <ClInclude Include="source\engine\scene\scene.h" />
     <ClInclude Include="source\engine\scene\scene_manager\scene_manager.h" />
     <ClInclude Include="source\engine\scene\scene_manager\scene_manager_api.h" />
@@ -146,10 +153,6 @@
     <ClInclude Include="source\engine\utility\enum.h" />
     <ClInclude Include="source\engine\utility\hierarchy_id_manager.h" />
     <ClInclude Include="source\engine\utility\math.h" />
-    <ClInclude Include="source\engine\world\game_object\player.h" />
-    <ClInclude Include="source\engine\world\internal\object.h" />
-    <ClInclude Include="source\engine\world\internal\object_storage.h" />
-    <ClInclude Include="source\engine\world\world.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
