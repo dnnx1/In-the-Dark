@@ -2,7 +2,7 @@
 #include "in_the_dark/error.h"
 #include "in_the_dark/core/main_window/main_window.h"
 
-itd::core::MainWindow::MainWindow(const CreationInfo& _info)
+itd::core::MainWindow::MainWindow(int _width, int _height, const char* _title)
 {
 	if (glfwInit() != GLFW_TRUE)
 		throw Error("MainWindow", "GLFW initialization failed");
@@ -12,7 +12,7 @@ itd::core::MainWindow::MainWindow(const CreationInfo& _info)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-	GLFWwindowPtr glfw_window(glfwCreateWindow(_info.width, _info.height, _info.title, nullptr, nullptr), glfwDestroyWindow);
+	GLFWwindowPtr glfw_window(glfwCreateWindow(_width, _height, _title, nullptr, nullptr), glfwDestroyWindow);
 	if (!glfw_window)
 		throw Error("MainWindow", "GLFWwindow creation failed");
 
@@ -36,7 +36,7 @@ itd::core::MainWindow::~MainWindow()
 
 std::unique_ptr<itd::core::MainWindow> itd::core::MainWindow::make_unique(int _width, int _height, const char* _title)
 {
-	return std::make_unique<MainWindow>(CreationInfo{ _width, _height, _title });
+	return std::make_unique<MainWindow>(_width, _height, _title);
 }
 
 void itd::core::MainWindow::set_position(glm::ivec2 _pos)

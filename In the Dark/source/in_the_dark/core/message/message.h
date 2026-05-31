@@ -5,11 +5,13 @@ namespace itd::core
 {
 	struct CloseGameRequestMessage {};
 	struct CloseGameMessage {};
+	struct BuildCompletedMessage {};
 
 	using Message = std::variant<
 		std::monostate,
 		CloseGameRequestMessage,
-		CloseGameMessage
+		CloseGameMessage,
+		BuildCompletedMessage
 	>;
 
 	template <typename MessageType> inline bool message_is(const Message& _message)

@@ -26,8 +26,7 @@ namespace itd::scene
 		virtual void pre_update(float _dt) {}
 		virtual void fixed_update(float _fixed_dt) {}
 		virtual void post_update(float _dt) {}
-		virtual void prepare_render(float _alpha) {}
-		virtual void render() {}
+		virtual void render(float _alpha) {}
 	};
 
 	template <typename Derived>

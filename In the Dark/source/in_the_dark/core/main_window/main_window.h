@@ -9,19 +9,11 @@ namespace itd::core
 {
 	class MainWindow : public MainWindowAPI
 	{
-	public:
-		struct CreationInfo
-		{
-			int width{ 0 };
-			int height{ 0 };
-			const char* title{ nullptr };
-		};
-
 	private:
 		using GLFWwindowPtr = std::unique_ptr<GLFWwindow, void(*)(GLFWwindow*)>;
 
 	public:
-		MainWindow(const CreationInfo& _info);
+		MainWindow(int _width, int _height, const char* _title);
 		~MainWindow();
 
 		MainWindow(const MainWindow&) = delete;

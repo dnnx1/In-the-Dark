@@ -28,6 +28,8 @@ void itd::Application::initialize(int _argc, char* _argv[])
 	m_renderer = graphics::Renderer::make_unique();
 	m_time_manager = time::TimeManager::make_unique(2.0f / 60.0f);
 
+	m_shaders = graphics::ShaderManager::make_unique();
+
 	m_keyboard = input::Keyboard::make_unique();
 	m_mouse = input::Mouse::make_unique();
 	m_cursor = input::Cursor::make_unique();
@@ -104,6 +106,10 @@ void itd::Application::handle_messages()
 			{
 				m_running = false;
 			}
+			else if (core::message_is<core::BuildCompletedMessage>(_message))
+			{
+				// TODO setup after build
+			}
 
 			m_scene_manager->handle_messages(_message);
 		});
@@ -130,8 +136,7 @@ void itd::Application::render()
 	float clear_color[] = { 0.0f, 0.2f, 0.4f, 1.0f };
 	m_graphics->clear_color_attachment(0, clear_color);
 
-	m_scene_manager->prepare_render(m_time_manager->render_alpha());
-	m_scene_manager->render();
+	m_scene_manager->render(m_time_manager->render_alpha());
 
 	m_window->swap_buffers();
 }

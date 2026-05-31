@@ -100,14 +100,8 @@ void itd::scene::SceneManager::post_update(float _dt)
 		(*it)->post_update(_dt);
 }
 
-void itd::scene::SceneManager::prepare_render(float _alpha)
+void itd::scene::SceneManager::render(float _alpha)
 {
 	for (auto& scene : m_stack)
-		scene->prepare_render(_alpha);
-}
-
-void itd::scene::SceneManager::render()
-{
-	for (auto& scene : m_stack)
-		scene->render();
+		scene->render(_alpha);
 }

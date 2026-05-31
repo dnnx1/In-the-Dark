@@ -84,6 +84,12 @@
     <ClCompile Include="source\in_the_dark\scene\building\building_scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\in_the_dark\graphics\shader\shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\in_the_dark\graphics\shader\shader_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\in_the_dark\error.h">
@@ -231,6 +237,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\in_the_dark\scene\building\building_scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\graphics\shader\shader_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\graphics\shader\shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\graphics\shader\shader_manager_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\graphics\shader\shader_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\utility\resource_container.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

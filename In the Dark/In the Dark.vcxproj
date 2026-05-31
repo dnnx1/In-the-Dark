@@ -111,6 +111,8 @@
     <ClCompile Include="source\in_the_dark\game_object\list\player.cpp" />
     <ClCompile Include="source\in_the_dark\graphics\graphics\graphics.cpp" />
     <ClCompile Include="source\in_the_dark\graphics\renderer\renderer.cpp" />
+    <ClCompile Include="source\in_the_dark\graphics\shader\shader.cpp" />
+    <ClCompile Include="source\in_the_dark\graphics\shader\shader_manager.cpp" />
     <ClCompile Include="source\in_the_dark\input\cursor\cursor.cpp" />
     <ClCompile Include="source\in_the_dark\input\frame_counter.cpp" />
     <ClCompile Include="source\in_the_dark\input\keyboard\keyboard.cpp" />
@@ -148,6 +150,10 @@
     <ClInclude Include="source\in_the_dark\graphics\graphics\graphics_api.h" />
     <ClInclude Include="source\in_the_dark\graphics\renderer\renderer.h" />
     <ClInclude Include="source\in_the_dark\graphics\renderer\renderer_api.h" />
+    <ClInclude Include="source\in_the_dark\graphics\shader\shader.h" />
+    <ClInclude Include="source\in_the_dark\graphics\shader\shader_api.h" />
+    <ClInclude Include="source\in_the_dark\graphics\shader\shader_manager.h" />
+    <ClInclude Include="source\in_the_dark\graphics\shader\shader_manager_api.h" />
     <ClInclude Include="source\in_the_dark\input\common\action.h" />
     <ClInclude Include="source\in_the_dark\input\common\key_code.h" />
     <ClInclude Include="source\in_the_dark\input\common\mouse_code.h" />
@@ -172,6 +178,7 @@
     <ClInclude Include="source\in_the_dark\utility\enum.h" />
     <ClInclude Include="source\in_the_dark\utility\hierarchy_id_manager.h" />
     <ClInclude Include="source\in_the_dark\utility\math.h" />
+    <ClInclude Include="source\in_the_dark\utility\resource_container.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

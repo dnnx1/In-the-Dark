@@ -55,8 +55,7 @@ namespace itd::scene
 		void pre_update(float _dt);
 		void fixed_update(float _fixed_dt);
 		void post_update(float _dt);
-		void prepare_render(float _alpha);
-		void render();
+		void render(float _alpha);
 
 	private:
 		std::unordered_map<uint32_t, ScenePtr> m_list;
