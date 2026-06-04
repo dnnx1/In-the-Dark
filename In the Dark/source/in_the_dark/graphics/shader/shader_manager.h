@@ -1,5 +1,4 @@
 #pragma once
-#include <string>
 #include "in_the_dark/graphics/shader/shader_manager_api.h"
 #include "in_the_dark/utility/resource_container.h"
 

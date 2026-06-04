@@ -5,6 +5,7 @@
 #include "in_the_dark/graphics/graphics/graphics_api.h"
 #include "in_the_dark/graphics/renderer/renderer_api.h"
 #include "in_the_dark/graphics/shader/shader_manager_api.h"
+#include "in_the_dark/graphics/texture/texture_manager_api.h"
 #include "in_the_dark/time/time_manager/time_manager_api.h"
 #include "in_the_dark/input/keyboard/keyboard_api.h"
 #include "in_the_dark/input/mouse/mouse_api.h"
@@ -27,6 +28,7 @@ namespace itd
 		time::TimeManagerAPI* time_manager{ nullptr };
 
 		graphics::ShaderManagerAPI* shaders{ nullptr };
+		graphics::TextureManagerAPI* textures{ nullptr };
 
 		input::KeyboardAPI* keyboard{ nullptr };
 		input::MouseAPI* mouse{ nullptr };

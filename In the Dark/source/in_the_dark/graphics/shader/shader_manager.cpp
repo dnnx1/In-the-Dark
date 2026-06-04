@@ -19,10 +19,12 @@ std::unique_ptr<itd::graphics::ShaderManager> itd::graphics::ShaderManager::make
 
 void itd::graphics::ShaderManager::add(std::string _name, std::shared_ptr<ShaderAPI> _shader)
 {
-	m_container.add(_name, _shader);
+	try { m_container.add(_name, _shader); }
+	catch (const std::exception& _e) { throw Error("Shader " + _name, _e.what()); }
 }
 
 std::shared_ptr<itd::graphics::ShaderAPI> itd::graphics::ShaderManager::get(std::string _name)
 {
-	return m_container.get(_name);
+	try { return m_container.get(_name); }
+	catch (const std::exception& _e) { throw Error("Shader " + _name, _e.what()); }
 }

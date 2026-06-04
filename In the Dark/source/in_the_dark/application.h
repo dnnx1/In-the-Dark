@@ -8,6 +8,7 @@
 #include "in_the_dark/graphics/graphics/graphics.h"
 #include "in_the_dark/graphics/renderer/renderer.h"
 #include "in_the_dark/graphics/shader/shader_manager.h"
+#include "in_the_dark/graphics/texture/texture_manager.h"
 #include "in_the_dark/time/time_manager/time_manager.h"
 #include "in_the_dark/input/keyboard/keyboard.h"
 #include "in_the_dark/input/mouse/mouse.h"
@@ -55,6 +56,7 @@ namespace itd
 		std::unique_ptr<time::TimeManager> m_time_manager;
 
 		std::unique_ptr<graphics::ShaderManager> m_shaders;
+		std::unique_ptr<graphics::TextureManager> m_textures;
 
 		std::unique_ptr<input::Keyboard> m_keyboard;
 		std::unique_ptr<input::Mouse> m_mouse;

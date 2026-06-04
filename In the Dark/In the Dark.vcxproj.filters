@@ -90,6 +90,15 @@
     <ClCompile Include="source\in_the_dark\graphics\shader\shader_manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\in_the_dark\graphics\texture\texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\in_the_dark\graphics\texture\texture_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\in_the_dark\graphics\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\in_the_dark\error.h">
@@ -252,6 +261,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\in_the_dark\utility\resource_container.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\graphics\texture\texture_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\graphics\texture\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\graphics\texture\texture_manager_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\graphics\texture\texture_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -113,6 +113,9 @@
     <ClCompile Include="source\in_the_dark\graphics\renderer\renderer.cpp" />
     <ClCompile Include="source\in_the_dark\graphics\shader\shader.cpp" />
     <ClCompile Include="source\in_the_dark\graphics\shader\shader_manager.cpp" />
+    <ClCompile Include="source\in_the_dark\graphics\stb_image.cpp" />
+    <ClCompile Include="source\in_the_dark\graphics\texture\texture.cpp" />
+    <ClCompile Include="source\in_the_dark\graphics\texture\texture_manager.cpp" />
     <ClCompile Include="source\in_the_dark\input\cursor\cursor.cpp" />
     <ClCompile Include="source\in_the_dark\input\frame_counter.cpp" />
     <ClCompile Include="source\in_the_dark\input\keyboard\keyboard.cpp" />
@@ -154,6 +157,10 @@
     <ClInclude Include="source\in_the_dark\graphics\shader\shader_api.h" />
     <ClInclude Include="source\in_the_dark\graphics\shader\shader_manager.h" />
     <ClInclude Include="source\in_the_dark\graphics\shader\shader_manager_api.h" />
+    <ClInclude Include="source\in_the_dark\graphics\texture\texture.h" />
+    <ClInclude Include="source\in_the_dark\graphics\texture\texture_api.h" />
+    <ClInclude Include="source\in_the_dark\graphics\texture\texture_manager.h" />
+    <ClInclude Include="source\in_the_dark\graphics\texture\texture_manager_api.h" />
     <ClInclude Include="source\in_the_dark\input\common\action.h" />
     <ClInclude Include="source\in_the_dark\input\common\key_code.h" />
     <ClInclude Include="source\in_the_dark\input\common\mouse_code.h" />

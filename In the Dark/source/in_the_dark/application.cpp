@@ -29,6 +29,7 @@ void itd::Application::initialize(int _argc, char* _argv[])
 	m_time_manager = time::TimeManager::make_unique(2.0f / 60.0f);
 
 	m_shaders = graphics::ShaderManager::make_unique();
+	m_textures = graphics::TextureManager::make_unique();
 
 	m_keyboard = input::Keyboard::make_unique();
 	m_mouse = input::Mouse::make_unique();
