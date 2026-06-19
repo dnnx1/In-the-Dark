@@ -28,6 +28,8 @@ namespace itd::scene
 		BuildingScene& operator=(BuildingScene&&) = delete;
 
 	public:
+		void create_callback() override;
+
 		void pre_update(float _dt) override;
 
 	private:

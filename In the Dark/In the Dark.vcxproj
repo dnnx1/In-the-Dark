@@ -134,6 +134,10 @@
     <ClInclude Include="source\in_the_dark\core\worker\main_thread_worker.h" />
     <ClInclude Include="source\in_the_dark\core\worker\worker_api.h" />
     <ClInclude Include="source\in_the_dark\core\worker\worker_thread.h" />
+    <ClInclude Include="source\in_the_dark\ecs\core\archetype.h" />
+    <ClInclude Include="source\in_the_dark\ecs\core\common.h" />
+    <ClInclude Include="source\in_the_dark\ecs\core\component_storage.h" />
+    <ClInclude Include="source\in_the_dark\ecs\core\world.h" />
     <ClInclude Include="source\in_the_dark\engine_api.h" />
     <ClInclude Include="source\in_the_dark\error.h" />
     <ClInclude Include="source\in_the_dark\core\main_window\event.h" />
@@ -142,6 +146,7 @@
     <ClInclude Include="source\in_the_dark\core\message\message_bus_api.h" />
     <ClInclude Include="source\in_the_dark\core\main_window\main_window.h" />
     <ClInclude Include="source\in_the_dark\core\main_window\main_window_api.h" />
+    <ClInclude Include="source\in_the_dark\game_object\common\collider.h" />
     <ClInclude Include="source\in_the_dark\game_object\game_object_list.h" />
     <ClInclude Include="source\in_the_dark\game_object\game_object_manager.h" />
     <ClInclude Include="source\in_the_dark\game_object\game_object_storage.h" />

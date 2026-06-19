@@ -1,5 +1,6 @@
 #pragma once
 #include "external/glm/vec2.hpp"
+#include "in_the_dark/game_object/common/collider.h"
 
 namespace itd::game_object
 {
@@ -27,6 +28,8 @@ namespace itd::game_object
 
 	public:
 		Snapshot make_snapshot() const;
+
+		Collider collider() const;
 
 	private:
 		glm::vec2 m_prev_position{ 0.0f };

@@ -275,5 +275,20 @@
     <ClInclude Include="source\in_the_dark\graphics\texture\texture_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\in_the_dark\game_object\common\collider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\ecs\core\component_storage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\ecs\core\archetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\ecs\core\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\in_the_dark\ecs\core\world.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
